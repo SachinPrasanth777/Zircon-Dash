@@ -10,7 +10,11 @@ const images = [
   "https://www.marchnetworks.com/wp-content/uploads/2019/01/banner-solutions-retail@2x.jpg",
 ];
 
-const paths = ["dashboard/output1_video.mp4", "dashboard/output1_video.mp4", "dashboard/output1_video.mp4",];
+const paths = [
+  "dashboard/output1_video.mp4",
+  "dashboard/output1_video.mp4",
+  "dashboard/output1_video.mp4",
+];
 
 const Cameras = () => {
   return (
@@ -18,11 +22,11 @@ const Cameras = () => {
       <Navbar />
       <div className="max-w-fit mx-auto p-10 flex flex-col ">
         <div className="grid grid-cols-2 gap-4 mx-auto ">
-          <h1 className="text-7xl font-light self-start col-span-2">
+          <h1 className="text-7xl font-light self-start ml-8 col-span-2">
             Welcome Back
           </h1>
-          <p className="col-span-2 text-2xl font-thin mb-4">
-            View analysis of a camera
+          <p className="col-span-2 text-2xl font-thin ml-8 mb-4">
+            View analysis of footages
           </p>
           <Carousel images={images} paths={paths} />
         </div>

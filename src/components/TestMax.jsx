@@ -10,7 +10,7 @@ const TestMax = (props) => {
         <h1 className="text-4xl font-extralight"> Most Active Section</h1>
         <div className="flex flex-col gap-2 text-2xl">
           <p className="font-medium">{maxItemDisplayName}</p>
-          <p>{props.maxAverage} Customers per hour</p>
+          <p>{props.maxAverage} Customers per minute</p>
         </div>
       </Card>
     </>

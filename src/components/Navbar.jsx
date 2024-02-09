@@ -17,9 +17,9 @@ const Navbar = (props) => {
         className="hidden max bg-white 0 rounded-full justify-center justify-self-end md:flex md:text-[10px] md:py-2 md:px-5 md:gap-4
         lg:text-xs lg:py-3 lg:px-7 lg:gap-10"
       >
-        <Link to="/dashboard" className="hover:underline">
+        {/* <Link to="/dashboard" className="hover:underline">
           Dashboard
-        </Link>
+        </Link> */}
         <a href="#" className="hover:underline">
           Statistics
         </a>

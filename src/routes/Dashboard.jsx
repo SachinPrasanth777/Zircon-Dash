@@ -32,6 +32,8 @@ export default function Dashboard(props) {
   const [sectionNames, setSectionNames] = useState({});
   const { link } = useParams();
 
+  console.log(link);
+
   const getData = async () => {
     try {
       const call = await fetch(
@@ -39,7 +41,7 @@ export default function Dashboard(props) {
       );
       const response = await call.json();
       setData(response);
-      extractSectionNames(response); 
+      extractSectionNames(response);
     } catch (e) {
       console.log(e);
     }
@@ -124,7 +126,7 @@ export default function Dashboard(props) {
             {/* Second Tab For footage */}
 
             <TabPanel>
-              <Video />
+              <Video videoname={link} />
             </TabPanel>
 
             {/* Third tab for bar graph of sales vs footfall */}

@@ -3,17 +3,16 @@ import { DatePicker } from "@tremor/react";
 
 import React from "react";
 
-const Video = () => {
+const Video = (props) => {
+  // const url = `https://d2kzg5cjizpi8q.cloudfront.net/${props.videoname}`;
+  const url = "https://d2kzg5cjizpi8q.cloudfront.net/processed_vid/src2.mp4";
+  console.log(url);
+
   return (
     <Card className="flex gap-8 p-10 mx-auto mt-8">
       <div>
-        <h2>Video Player</h2>
-        <video controls width="600">
-          <source
-            src="https://d2kzg5cjizpi8q.cloudfront.net/output1_video.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
+        <video controls width="800" className="mx-auto">
+          <source src={url} type="video/mp4" />
         </video>
       </div>
     </Card>
