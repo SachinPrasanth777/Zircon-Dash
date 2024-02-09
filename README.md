@@ -1,5 +1,5 @@
 # RetailSense
-Welcome to the RetailSense repository! This is a software built using the leveraging camera technology for enhanced in-store retail analytics.
+🙏Welcome to the RetailSense repository! This is a software built using the leveraging camera technology for enhanced in-store retail analytics.
 
 # React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
