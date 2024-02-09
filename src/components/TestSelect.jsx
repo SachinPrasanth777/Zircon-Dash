@@ -5,32 +5,26 @@ import { IoBag } from "react-icons/io5";
 import { PiHoodieDuotone } from "react-icons/pi";
 
 import { Select, SelectItem } from "@tremor/react";
-import {
-  TshirtsData,
-  JeansData,
-  ShoesData,
-  BagsData,
-  JacketsData,
-} from "../constants/CombinedData";
 
-export function TestSelect({ value, setValue }) {
+
+export function TestSelect({props, value, setValue }) {
   return (
     <>
       <div className="">
         <Select value={value} onValueChange={setValue}>
-          <SelectItem value={TshirtsData} icon={FaTshirt}>
+          <SelectItem value={props.Section1Data} icon={FaTshirt}>
             Tshirts
           </SelectItem>
-          <SelectItem value={JeansData} icon={PiPants}>
+          <SelectItem value={props.Section2Data} icon={PiPants}>
             Jeans
           </SelectItem>
-          <SelectItem value={ShoesData} icon={GiConverseShoe}>
+          <SelectItem value={props.Section3Data} icon={GiConverseShoe}>
             Shoes
           </SelectItem>
-          <SelectItem value={BagsData} icon={IoBag}>
+          <SelectItem value={props.Section4Data} icon={IoBag}>
             Bags
           </SelectItem>
-          <SelectItem value={JacketsData} icon={PiHoodieDuotone}>
+          <SelectItem value={props.Section5Data} icon={PiHoodieDuotone}>
             Jackets
           </SelectItem>
         </Select>

@@ -1,8 +1,6 @@
-import { footfalldata, saledata } from "./Data";
-
-const combineChartDataAndSaleData = (footfallData, saleData, itemName) => {
-  return footfallData.map((chartItem) => {
-    const saleItem = saleData.find((sale) => sale.time === chartItem.time);
+export function Combined(footfalldata, saledata, itemName) {
+  return footfalldata.map((chartItem) => {
+    const saleItem = saledata.find((sale) => sale.time === chartItem.time);
 
     return {
       time: chartItem.time,
@@ -10,23 +8,4 @@ const combineChartDataAndSaleData = (footfallData, saleData, itemName) => {
       Sale: saleItem ? saleItem[itemName] : 0,
     };
   });
-};
-
-const TshirtsData = combineChartDataAndSaleData(
-  footfalldata,
-  saledata,
-  "Tshirts"
-);
-
-const JeansData = combineChartDataAndSaleData(footfalldata, saledata, "Jeans");
-
-const ShoesData = combineChartDataAndSaleData(footfalldata, saledata, "Shoes");
-
-const BagsData = combineChartDataAndSaleData(footfalldata, saledata, "Bags");
-const JacketsData = combineChartDataAndSaleData(
-  footfalldata,
-  saledata,
-  "Jackets"
-);
-
-export { TshirtsData, JeansData, ShoesData, BagsData, JacketsData };
+}

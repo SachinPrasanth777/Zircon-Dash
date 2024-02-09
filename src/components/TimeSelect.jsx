@@ -1,20 +1,24 @@
-import React from "react";
 import { Select, SelectItem } from "@tremor/react";
 
 const TimeSelect = () => {
-  const hours = Array.from(Array(24).keys()); // Generate an array of 24 hours
+  const options = Array.from(Array(30), (_, index) => ({
+    value: (index + 1).toString(),
+    label: (index + 1).toString(),
+  }));
 
   return (
-    <Select>
-      {hours.map((hour) => (
-        <SelectItem
-          key={hour}
-          value={`${hour % 12 || 12}${hour >= 12 ? "PM" : "AM"}`}
-        >
-          {`${hour % 12 || 12}${hour >= 12 ? "PM" : "AM"}`}
-        </SelectItem>
-      ))}
-    </Select>
+    <>
+      <div className="max-w-sm mx-auto space-y-6">
+        {/* Uncontrolled */}
+        <Select>
+          {options.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>
+    </>
   );
 };
 

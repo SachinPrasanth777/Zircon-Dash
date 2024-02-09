@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react";
 import { Card } from "@tremor/react";
+import { Link } from "react-router-dom";
 
-const CameraCard = () => {
+const CameraCard = (props) => {
   return (
     <div>
-    <Card className='w-[600px]'>
-        <img src="https://getsafeandsound.com/wp-content/uploads/2019/12/store-security-in-retail-management.jpg"
-        className="w-fit"/>
-    </Card>
+      <Link to={`/${props.path}`}>
+        <Card className="w-[600px]">
+          <img src={props.thumbnail} className="w-fit" />
+        </Card>
+      </Link>
     </div>
+  );
+};
 
-  )
-}
-
-export default CameraCard
+export default CameraCard;
