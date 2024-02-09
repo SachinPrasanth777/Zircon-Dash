@@ -1,8 +1,12 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { useParams } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const { link } = useParams();
+
   return (
     <div className="w-full mx-auto flex justify-between items-center p-6 pt-4 text-black">
       <div className="bg-white rounded-full p-3">
@@ -31,7 +35,7 @@ const Navbar = () => {
         <Link to="/test" className="hover:underline">
           Test
         </Link>
-        <Link to="/form" className="hover:underline">
+        <Link to="/form" sectionNames={props.sectionNames} video_url={link} className="hover:underline">
           Form
         </Link>
       </div>

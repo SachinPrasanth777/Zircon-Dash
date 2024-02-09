@@ -78,11 +78,9 @@ export default function Dashboard(props) {
   const Section4Data = Combined(data, saledata, "Section4");
   const Section5Data = Combined(data, saledata, "Section5");
 
-  console.log(Section1Data);
-
   return (
     <>
-      <Navbar />
+      <Navbar sectionNames={sectionNames} />
       <main className="px-36 py-5">
         <h1 className="text-5xl font-semibold">Dashboard</h1>
 

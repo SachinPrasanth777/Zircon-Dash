@@ -10,7 +10,7 @@ const images = [
   "https://www.marchnetworks.com/wp-content/uploads/2019/01/banner-solutions-retail@2x.jpg",
 ];
 
-const paths = ["dashboard/a", "dashboard/b", "dashboard/c"];
+const paths = ["dashboard/output1_video.mp4", "dashboard/output1_video.mp4", "dashboard/output1_video.mp4",];
 
 const Cameras = () => {
   return (

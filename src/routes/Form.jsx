@@ -4,20 +4,19 @@ import { NumberInput } from "@tremor/react";
 import TimeSelect from "../components/TimeSelect";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
+import { TextInput } from "@tremor/react";
 
-const Form = () => {
-  const [time, setTime] = useState(""); // State to hold the selected time
-  const [section1, setSection1] = useState(""); // State to hold the entered amount for Section1
-  const [section2, setSection2] = useState(""); // State to hold the entered amount for Section2
-  const [section3, setSection3] = useState(""); // State to hold the entered amount for Section3
-  const [section4, setSection4] = useState(""); // State to hold the entered amount for Section4
-  const [section5, setSection5] = useState(""); // State to hold the entered amount for Section5
-  const [section6, setSection6] = useState(""); // State to hold the entered amount for Section6
-  const { link } = useParams();
+const Form = ({SectionNames,video_url}) => {
+  const [time, setTime] = useState(0); // State to hold the selected time
+  const [Section1, setSection1] = useState(0); // State to hold the entered amount for Section1
+  const [Section2, setSection2] = useState(0); 
+  const [Section3, setSection3] = useState(0); 
+  const [Section4, setSection4] = useState(0); 
+  const [Section5, setSection5] = useState(0); 
+  const [Section6, setSection6] = useState(0); 
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-
     try {
       const response = await fetch("http://localhost:8000/item", {
         method: "POST",
@@ -26,28 +25,29 @@ const Form = () => {
         },
         body: JSON.stringify({
           time,
-          section1,
-          section2,
-          section3,
-          section4,
-          section5,
-          section6,
-        }), // Sending time and amount data in JSON format
+          Section1,
+          Section2,
+          Section3,
+          Section4,
+          Section5,
+          Section6
+        }), // Sending data in JSON format
       });
       const data = await response.json();
       console.log("Data submitted successfully:", data);
       // Optionally, you can reset the form fields after successful submission
-      setTime("");
-      setSection1("");
-      setSection2("");
-      setSection3("");
-      setSection4("");
-      setSection5("");
-      setSection6("");
+      setTime(0);
+      setSection1(0);
+      setSection2(0);
+      setSection3(0);
+      setSection4(0);
+      setSection5(0);
+      setSection6(0);
     } catch (error) {
       console.error("Error submitting data:", error);
     }
   };
+  
 
   return (
     <div>
@@ -56,43 +56,49 @@ const Form = () => {
         <Card className="flex flex-col w-fit p-10 mx-auto gap-4">
           <h1>Sales Data</h1>
           <p>Time</p>
-          <TimeSelect value={time} onChange={(value) => setTime(value)} />
+          <NumberInput
+            placeholder="Time"
+            value={time}
+            onChange={(e) => setTime(parseInt(e.target.value))}
+            />
           <p>Section1</p>
+          {/* <TextInput
+          value={video_url} className="hidden"/>        */}
           <NumberInput
             placeholder="Section1"
-            value={section1}
-            onChange={(e) => setSection1(e.target.value)}
-          />
+            value={Section1}
+            onChange={(e) => setSection1(parseInt(e.target.value))}
+            />
           <p>Section2</p>
           <NumberInput
             placeholder="Section2"
-            value={section2}
-            onChange={(e) => setSection2(e.target.value)}
-          />
+            value={Section2}
+            onChange={(e) => setSection2(parseInt(e.target.value))}
+            />
           <p>Section3</p>
           <NumberInput
             placeholder="Section3"
-            value={section3}
-            onChange={(e) => setSection3(e.target.value)}
-          />
+            value={Section3}
+            onChange={(e) => setSection3(parseInt(e.target.value))}
+            />
           <p>Section4</p>
           <NumberInput
             placeholder="Section4"
-            value={section4}
-            onChange={(e) => setSection4(e.target.value)}
-          />
+            value={Section4}
+            onChange={(e) => setSection4(parseInt(e.target.value))}
+            />
           <p>Section5</p>
           <NumberInput
             placeholder="Section5"
-            value={section5}
-            onChange={(e) => setSection5(e.target.value)}
-          />
+            value={Section5}
+            onChange={(e) => setSection5(parseInt(e.target.value))}
+            />
           <p>Section6</p>
           <NumberInput
             placeholder="Section6"
-            value={section6}
-            onChange={(e) => setSection6(e.target.value)}
-          />
+            value={Section6}
+            onChange={(e) => setSection6(parseInt(e.target.value))}
+            />
           <button type="submit">Submit</button>
         </Card>
       </form>
